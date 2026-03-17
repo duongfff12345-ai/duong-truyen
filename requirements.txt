@@ -1,3 +1,2 @@
+edge-tts
 flask
-gtts
-gunicorn
