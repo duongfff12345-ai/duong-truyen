@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>AI Voice Truyện</title>
+
+<style>
+
+body{
+font-family: Arial;
+background: linear-gradient(135deg,#6dd5ed,#2193b0);
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.container{
+background:white;
+padding:40px;
+border-radius:15px;
+width:520px;
+text-align:center;
+box-shadow:0 0 15px rgba(0,0,0,0.2);
+}
+
+textarea{
+width:100%;
+height:140px;
+padding:10px;
+font-size:14px;
+margin-bottom:15px;
+}
+
+select{
+width:260px;
+padding:8px;
+margin-bottom:15px;
+}
+
+button{
+background:#2193b0;
+color:white;
+border:none;
+padding:10px 25px;
+border-radius:6px;
+cursor:pointer;
+}
+
+button:hover{
+background:#197a91;
+}
+
+audio{
+margin-top:20px;
+width:100%;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>AI Voice Truyện YouTube</h2>
+
+<form action="/create_audio" method="post">
+
+<textarea name="text" placeholder="Dán đoạn truyện vào đây..." required></textarea>
+
+<br>
+
+<select name="voice">
+
+<option value="nu_truyen">Nữ truyện nhẹ</option>
+<option value="nu_ke">Nữ kể chuyện</option>
+<option value="nu_bac">Nữ miền Bắc</option>
+<option value="nu_nam">Nữ miền Nam</option>
+<option value="nam_tram">Nam truyện trầm</option>
+<option value="nam_ke">Nam kể chuyện</option>
+<option value="nam_bac">Nam miền Bắc</option>
+<option value="nam_nam">Nam miền Nam</option>
+<option value="nu_halazy">Nữ truyện (giống Halazy Audio)</option>
+<option value="nu_story_youtube">Nữ kể chuyện YouTube</option>
+
+</select>
+
+<br>
+
+<button type="submit">Tạo MP3</button>
+
+</form>
+
+{% if audio %}
+
+<audio controls>
+<source src="/download">
+</audio>
+
+<br><br>
+
+<a href="/download">
+<button>Tải MP3</button>
+</a>
+
+{% endif %}
+
+</div>
+
+</body>
+</html>
