@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Chuyển văn bản thành MP3</title>
+
+<style>
+body{
+font-family: Arial;
+background:#111;
+color:white;
+text-align:center;
+padding:40px;
+}
+
+textarea{
+width:80%;
+height:200px;
+padding:10px;
+font-size:16px;
+}
+
+select{
+padding:10px;
+margin-top:10px;
+font-size:16px;
+}
+
+button{
+padding:12px 20px;
+margin-top:15px;
+font-size:16px;
+cursor:pointer;
+}
+
+.audio{
+margin-top:30px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>Chuyển Văn Bản Thành MP3</h1>
+
+<form action="/create_audio" method="post">
+
+<textarea name="text" placeholder="Dán truyện vào đây..."></textarea>
+
+<br><br>
+
+<select name="voice">
+
+<option value="nu_truyen">Nữ đọc truyện</option>
+<option value="nu_ke">Nữ kể chuyện</option>
+<option value="nu_bac">Nữ miền Bắc</option>
+<option value="nu_nam">Nữ miền Nam</option>
+
+<option value="nam_tram">Nam trầm</option>
+<option value="nam_ke">Nam kể chuyện</option>
+<option value="nam_bac">Nam miền Bắc</option>
+<option value="nam_nam">Nam miền Nam</option>
+
+<option value="nu_halazy">Giọng Halezy</option>
+<option value="nu_story_youtube">Giọng Story YouTube</option>
+
+</select>
+
+<br>
+
+<button type="submit">TẠO MP3</button>
+
+</form>
+
+{% if audio %}
+
+<div class="audio">
+
+<h3>MP3 đã tạo xong</h3>
+
+<audio controls>
+<source src="/download" type="audio/mpeg">
+</audio>
+
+<br><br>
+
+<a href="/download">
+<button>TẢI MP3</button>
+</a>
+
+</div>
+
+{% endif %}
+
+</body>
+</html>
